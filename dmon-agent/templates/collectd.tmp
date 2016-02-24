@@ -1,5 +1,13 @@
 FQDNLookup true
 
+PIDFile "{{collectd_pid_file}}"
+
+LoadPlugin logfile
+<Plugin "logfile">
+  LogLevel "info"
+  File "/var/log/collectd.log"
+  Timestamp true
+</Plugin>
 
 LoadPlugin cpu
 
@@ -24,7 +32,7 @@ LoadPlugin network
     IgnoreSelected false
 </Plugin>
 <Plugin "network">
-    Server "109.231.126.38" "25826"
+    Server "{{logstash_server_ip}}" "{{logstash_server_port}}"
 </Plugin>
 
 LoadPlugin swap
