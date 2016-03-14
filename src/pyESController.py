@@ -175,6 +175,7 @@ def dict2CSV(ListValues,fileName="output"):
   csvOut = os.path.join(outDir,fileType)
   try:
     with open(csvOut,'wb') as csvfile:
+      '''Reason why the CSV writer does not work as expected'''
       w=csv.DictWriter(csvfile, ListValues[0].keys())
       w.writeheader()
       for dictMetrics in ListValues:
